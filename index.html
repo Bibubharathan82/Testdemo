@@ -38,6 +38,8 @@ body {
     text-align: center;
 }
 </style>
+<link href="https://chatqa.dialogview.ai/css/client_chat.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
 	<div class="flex-container">
@@ -46,5 +48,43 @@ body {
 		</div>
     </div>
 </div>
+<div class="chat-toggler-client">
+                              <span class="agent-image-wrapper-client">
+                                  <img src="https://chatqa.dialogview.ai/images/chat-bubble.png" class="chat-avatar" alt="chat avatar icon">
+                              </span>
+                          </div>
+                          <div class="msgWrap" style="display: none;">
+                              <div class="msger-header-options-client" style="display: none;">
+                                <img src="https://chatqa.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
+                              </div>
+                              <iframe id="oneview-chatbot" allow="camera; microphone;" sandbox="allow-same-origin allow-scripts allow-popups"
+                                  src="https://chatqa.dialogview.ai/iframe_milliqa_socket.html"
+                                  style="position: fixed;right:0px;bottom:0px; height: auto; border:1px solid #fa8072; z-index: 999; background: transparent; border-top-left-radius: 20px; border-top-right-radius: 20px; width: 320px;"
+                                  title="Chat Box"></iframe>
+                          </div>
+
+                          <script>
+                          jQuery(document).ready(function($) {
+                              $('.chat-toggler-client .agent-image-wrapper-client,.chat-toggler-client .initial-chat').click(function () {
+                                  $('#oneview-chatbot').css("height","442px");
+                                  $('.msgWrap').css('display', 'flex');
+                              });
+                              $('.close-btn-client').click(function () {
+                                  $('.msgWrap').css('display', 'none');
+                              });
+                              $(".initial-chat-close").click(function () {
+                                  $(".initial-chat-close,.initial-chat").fadeOut("slow", function () {
+                                      $(".initial-chat-close,.initial-chat").remove();
+                                  });
+                              });
+                              setTimeout(function () {
+                                  $('.chat-toggler-client .agent-image-wrapper-client').trigger('click');
+                              }, 20000);
+                          });
+                          jQuery("#oneview-chatbot").on("load", function () {
+                              jQuery('.msger-header-options-client').css('display', 'flex');
+                          });
+                      </script>
+                      
 </body>
 </html>
