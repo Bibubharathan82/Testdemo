@@ -85,7 +85,7 @@ body {
         };
 
         window.onload = function(){
-            fetch("https://admin.prod.dialogview.ai/admin/api/customizationbyurl", requestOptions)
+            fetch("https://admin.qa.thebanknet.com/admin/api/customizationbyurl", requestOptions)
             .then(response => response.text())
             .then(result => {
                 var data = JSON.parse(result)
