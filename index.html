@@ -56,12 +56,12 @@ body {
     </div>
     <div class="msgWrap">
         <div class="msger-header-options-client" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Close">
-            <img src="https://client.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
+            <img src="https://chatqa.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
         </div>
-        <button type="button" class="screen-minimize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Minimize"><img src="https://client.dialogview.ai/images/minimize-icon.svg" alt="minimize-icon"></button>
-        <button type="button" class="screen-resize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Screen resize"><img src="https://client.dialogview.ai/images/resize-whit.svg" alt="resize-icon"></button>
+        <button type="button" class="screen-minimize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Minimize"><img src="https://chatqa.dialogview.ai/images/minimize-icon.svg" alt="minimize-icon"></button>
+        <button type="button" class="screen-resize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Screen resize"><img src="https://chatqa.dialogview.ai/images/resize-whit.svg" alt="resize-icon"></button>
         <iframe id="oneview-chatbot" class="dialogview-chatbot" sandbox="allow-same-origin allow-scripts allow-popups" allow="camera;microphone;display-capture;" seamless
-            src="https://client.dialogview.ai/iframe_milliqa_socket.html" title="Chat Box"></iframe>
+            src="https://chatqa.dialogview.ai/iframe_milliqa_socket.html" title="Chat Box"></iframe>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script >
@@ -92,7 +92,7 @@ body {
                 console.log(data)
                
                 if (data.uiCustomizationTheme.chatBubbleIcon.includes("chat-bubble")){
-                    document.getElementById('chat-bubble-shape').src= "https://client.dialogview.ai/images/chat-bubble.svg";
+                    document.getElementById('chat-bubble-shape').src= "https://chatqa.dialogview.ai/images/chat-bubble.svg";
                 } else {
                     document.getElementById('chat-bubble-shape').src= data.uiCustomizationTheme.chatBubbleIcon;
                 }
