@@ -38,7 +38,7 @@ body {
     text-align: center;
 }
 </style>
-<link href="https://chatqa.dialogview.ai/css/client_chat.css" rel="stylesheet" />
+<link href="https://client.dialogview.ai/css/client_chat.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
@@ -56,12 +56,12 @@ body {
     </div>
     <div class="msgWrap">
         <div class="msger-header-options-client" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Close">
-            <img src="https://chatqa.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
+            <img src="https://client.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
         </div>
-        <button type="button" class="screen-minimize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Minimize"><img src="https://chatqa.dialogview.ai/images/minimize-icon.svg" alt="minimize-icon"></button>
-        <button type="button" class="screen-resize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Screen resize"><img src="https://chatqa.dialogview.ai/images/resize-whit.svg" alt="resize-icon"></button>
+        <button type="button" class="screen-minimize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Minimize"><img src="https://client.dialogview.ai/images/minimize-icon.svg" alt="minimize-icon"></button>
+        <button type="button" class="screen-resize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Screen resize"><img src="https://client.dialogview.ai/images/resize-whit.svg" alt="resize-icon"></button>
         <iframe id="oneview-chatbot" class="dialogview-chatbot" sandbox="allow-same-origin allow-scripts allow-popups" allow="camera;microphone;display-capture;" seamless
-            src="https://chatqa.dialogview.ai/iframe_milliqa_socket.html" title="Chat Box"></iframe>
+            src="https://client.dialogview.ai/iframe_milliqa_socket.html" title="Chat Box"></iframe>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script >
@@ -85,7 +85,7 @@ body {
         };
 
         window.onload = function(){
-            fetch("https://admin.qa.thebanknet.com/admin/api/customizationbyurl", requestOptions)
+            fetch("https://admin.prod.dialogview.ai/admin/api/customizationbyurl", requestOptions)
             .then(response => response.text())
             .then(result => {
                 var data = JSON.parse(result)
