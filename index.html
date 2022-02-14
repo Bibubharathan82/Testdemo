@@ -48,7 +48,7 @@ body {
 		</div>
     </div>
 </div>
-<div class="chat-toggler-client">
+	<div class="chat-toggler-client">
         <span class="agent-image-wrapper-client">
             <img id="chat-bubble-shape" class="chat-avatar">
             <span id="chatBubbleText" class="help-text"></span>
@@ -56,90 +56,15 @@ body {
     </div>
     <div class="msgWrap">
         <div class="msger-header-options-client" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Close">
-            <img src="https://client.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
+            <img src="https://chatdev.dialogview.ai/images/cancel.svg" alt="cancel-icon" class="close-btn-client ctl-btn">
         </div>
-        <button type="button" class="screen-minimize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Minimize"><img src="https://client.dialogview.ai/images/minimize-icon.svg" alt="minimize-icon"></button>
-        <button type="button" class="screen-resize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Screen resize"><img src="https://client.dialogview.ai/images/resize-whit.svg" alt="resize-icon"></button>
-        <iframe id="oneview-chatbot" class="dialogview-chatbot" sandbox="allow-same-origin allow-scripts allow-popups" allow="camera;microphone;display-capture;" seamless
-            src="https://client.dialogview.ai/iframe_milliqa_socket.html" title="Chat Box"></iframe>
+        <button type="button" class="screen-minimize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Minimize"><img src="https://chatdev.dialogview.ai/images/minimize-icon.svg" alt="minimize-icon"></button>
+        <button type="button" class="screen-resize-btn" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" title="Screen resize"><img src="https://chatdev.dialogview.ai/images/resize-whit.svg" alt="resize-icon"></button>
+        <iframe id="oneview-chatbot" class="dialogview-chatbot" sandbox="allow-same-origin allow-scripts allow-popups" allow="camera;microphone" seamless
+            src="https://chatdev.dialogview.ai/iframe_milliqa_socket.html" title="Chat Box"></iframe>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script >
-        function clientUrl() {
-            if(window.location.ancestorOrigins.length === 1) {
-                return window.location.ancestorOrigins[0].replace(/(^\w+:|^)\/\//, '');
-            } else if(window.location.ancestorOrigins.length === 0) {
-                return window.location.host;
-            }
-        }
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "text/plain");
-        
-        var raw = clientUrl();
-        var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-        };
-
-        window.onload = function(){
-            fetch("https://admin.prod.dialogview.ai/admin/api/customizationbyurl", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                var data = JSON.parse(result)
-                console.log(data)
-               
-                if (data.uiCustomizationTheme.chatBubbleIcon.includes("chat-bubble")){
-                    document.getElementById('chat-bubble-shape').src= "https://chatqa.dialogview.ai/images/chat-bubble.svg";
-                } else {
-                    document.getElementById('chat-bubble-shape').src= data.uiCustomizationTheme.chatBubbleIcon;
-                }
-                document.getElementById('chatBubbleText').innerHTML= data.uiCustomizationTheme.chatBubbleText;
-                document.getElementById('chatBubbleText').style.color= data.uiCustomizationTheme.chatBubbleTextColor;
-                return data;
-            })
-            .catch(error => console.log('error', error));
-        };
-    </script>
-    <script>
-        // var companyCustomization;
-        jQuery(document).ready(function($) {
-            $('.chat-toggler-client .agent-image-wrapper-client,.chat-toggler-client .initial-chat').click(function () {
-                $('.msgWrap').fadeIn();
-                $('.chat-toggler-client').fadeOut();
-            });
-            $('.close-btn-client').click(function () {
-                $('.msgWrap').fadeOut();
-                $('.chat-toggler-client').fadeIn();
-            });
-            $('.screen-resize-btn').click(function () {
-                $('.screen-minimize-btn').addClass("mimimize-btn");
-                $('.dialogview-chatbot').addClass("mimimize-btn");
-                $('.screen-resize-btn').css('display', 'none');
-                $('.close-btn-client').css('display', 'none');
-            });
-            $('.screen-minimize-btn').click(function () {
-                $('.dialogview-chatbot').removeClass("mimimize-btn");
-                $('.screen-minimize-btn').removeClass("mimimize-btn");
-                $('.screen-resize-btn').css('display', 'flex');
-                $('.close-btn-client').css('display', 'flex');
-            });
-            $(".initial-chat-close").click(function () {
-                $(".initial-chat-close,.initial-chat").fadeOut("slow", function () {
-                    $(".initial-chat-close,.initial-chat").remove();
-                });
-            });
-        });
-        jQuery("#oneview-chatbot").on("load", function () {
-            jQuery('.msger-header-options-client').css('display', 'flex');
-        });
-        jQuery(function () {
-            jQuery('[data-toggle="tooltip"]').tooltip({delay: { "show": 500, "hide": 100 }})
-        });
-        
-    </script>
+    <script src="https://chatdev.dialogview.ai/js/dialogview_main.js"></script>
                       
 </body>
 </html>
